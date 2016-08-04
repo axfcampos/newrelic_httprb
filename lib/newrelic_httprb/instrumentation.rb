@@ -8,7 +8,7 @@ DependencyDetection.defer do
   executes do
     ::NewRelic::Agent.logger.info 'Installing http.rb instrumentation'
     require 'new_relic/agent/cross_app_tracing'
-    require 'newrelic_http/wrappers'
+    require 'newrelic_httprb/wrappers'
   end
 
   executes do
