@@ -8,10 +8,13 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/Talkdesk/newrelic_httprb"
   gem.license       = "MIT"
 
-  gem.files         = Dir["{lib}/**/*.rb", "LICENSE", "*.md"]
   gem.name          = "newrelic_httprb"
   gem.require_paths = ["lib"]
   gem.version       = NewRelicHTTP::VERSION
+
+  gem.files         = `git ls-files`.split($/)
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+
   gem.add_dependency 'newrelic_rpm', '~> 3.11'
   gem.add_dependency 'http'
 
