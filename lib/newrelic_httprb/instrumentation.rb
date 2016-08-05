@@ -16,6 +16,7 @@ DependencyDetection.defer do
       def perform_with_newrelic_trace(request, options)
         wrapped_request = ::NewRelicHTTP::HTTPRequest.new(request)
 
+        response = nil
         ::NewRelic::Agent::CrossAppTracing.tl_trace_http_request(wrapped_request) do
           # RUBY-1244 Disable further tracing in request to avoid double
           # counting if connection wasn't started (which calls request again).
